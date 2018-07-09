@@ -15,8 +15,6 @@ class ImageManager
         'driver' => 'gd'
     ];
 
-    public $defaultDirectory = "";
-
     /**
      * Creates new instance of Image Manager
      *

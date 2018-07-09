@@ -1,114 +1,62 @@
-# Desverreaux.com
+<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
-This git repo holds all the code to my personal website Desverreaux.com, which I use as a growing list of things such as a portfolio and professional page, a (kinda) ftp server, and general server to play around with whatever seems neat at the time.
+<p align="center">
+<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
+</p>
 
-This is the whole site aside from data that exists on some separate servers that I also manage, and this will be the case until I can get the money to buy own physical git server. This being the case I want to say that: 
-1. This is horribly insecure and from a security perspective about the only thing I could do worse is put a passwords.txt in here. I realize this and just ask that whoever is reading this not to take advantage of a developer still learning some of the ropes.
-2. If you are using this as a reference, I can't put into words how much I'd love to help out anyone who is also learning about any of this neato stuff. Feel free to contact me at the info i've provided below if you have any questions about this code base or anything you happen to be trying to make with this.  
+## About Laravel
 
-### A note on its quality
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
 
-I am currently a unemployeed developer fresh out of college, and this site's completion with at least a v1.0 is a self imposed requirement before I start applying to jobs. Unfortunately I only have so much money for food/rent/etc so achieving core functionality and moving closer to having a source of income again is important if I want to not starve. This is simply a note to explain the somewhat rushed quality found in this repo. However once I get to a point in life where im not constantly having to worry about being homeless, I will come back to fix and give this project all the polish it deserves. 
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
+Laravel is accessible, yet powerful, providing tools needed for large, robust applications.
 
-## Technology Stack
+## Learning Laravel
 
-The site is hosted on a docker worker node in a cluster that I rent out from Amazon Web Services. The specific image that is used to build the server can be found at docker hub under desverreaux/webserver and here's a url for it https://hub.docker.com/r/desverreaux/webserver/. The image branches off from a ubuntu server 16.04 image also found on docker hub. The rest of the web stack would be...
-*Apache2 for serving http requests
-*Php for pretty much all the backend code 
-*Laravel as a back end framework
-*Composer & Npm as back end and front end package managers 
-*Vue as the a front end framework 
-*Sass as a Asset Compiler and preprocessor 
-*Others that im sure im forgetting 
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of any modern web application framework, making it a breeze to get started learning the framework.
 
-### Deployment 
+If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 1100 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
 
-This process could be simplified by formatting a docker build script that would do this whole section for you, and I will write this eventually however to have a functional site this is optional and I have decided to defer it for now. 
+## Laravel Sponsors
 
-To create the docker container that runs the server use "docker run" with the following arguments
+We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell):
 
-```
-docker run 
-    -it
-	-p 80:80 -p 10000:10000 
-	-v d:/Serverdata/Desverreaux.com/Filesystem:/var/www/Desverreaux.com/ 
-	--name Webserver 
-	-h Webserver 
-	-d desverreaux/webserver:latest 
-	tail -f /dev/null
+- **[Vehikl](https://vehikl.com/)**
+- **[Tighten Co.](https://tighten.co)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[Cubet Techno Labs](https://cubettech.com)**
+- **[British Software Development](https://www.britishsoftware.co)**
+- [UserInsights](https://userinsights.com)
+- [Fragrantica](https://www.fragrantica.com)
+- [SOFTonSOFA](https://softonsofa.com/)
+- [User10](https://user10.com)
+- [Soumettre.fr](https://soumettre.fr/)
+- [CodeBrisk](https://codebrisk.com)
+- [1Forge](https://1forge.com)
+- [TECPRESSO](https://tecpresso.co.jp/)
+- [Runtime Converter](http://runtimeconverter.com/)
+- [WebL'Agence](https://weblagence.com/)
+- [Invoice Ninja](https://www.invoiceninja.com)
+- [iMi digital](https://www.imi-digital.de/)
 
-```
+## Contributing
 
-Go to /var/www/Desverreaux.com/ and clone this repo to that directory 
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
+## Security Vulnerabilities
 
-```
-cd /var/www/Desverreaux.com/
-git clone https://github.com/Desverreaux/Desverreaux.com.git
-```
-
-Initialize npm and composer by running
-
-```
-npm install 
-composer install
-```
-
-Install the following packages with apt-get
-
-*alien
-*libmagicwand-dev
-*imagemagick
-*jpegoptim
-*optipng
-*pngquant
-*gifsicle
-
-and these with npm install 
-
-*svgo
-
-You will need to create this new environments .env file for laravel with 
-
-```
-cp /var/www/Desverreaux.com/.env.example /var/www/Desverreaux.com/.env
-```
-
-as well as create an application key for laravel with 
-
-```
-php artisan key:generate
-```
-
-To use the scripts that optimize the images in the asset folder you will need to install the php extension for the library used with 
-
-```
-Touch /etc/php/7.2/mods-available/imagick.ini
-cat extension=imagick.so > /etc/php/7.2/mods-available/imagick.ini
-ln -s /etc/php/7.2/mods-available/imagick.ini /etc/php/7.2/apache2/conf.d/20-imagick.ini
-```
-
-Finally you should be able to run the following to start all the services needed
-
-```
-sh startServices.sh
-```
-
-As of now this is all I have documented. 
-
-
-## Running the Tests
-
-As i personally dislike tests, along with every other developer I assume, and they are not needed for base functionality test are currently deferred to a later date
-
-## Authors
-
-* **John Norris Desverreaux** - Email:john@desverreaux.com
-
-I would also provide a link to my website but I'm REAL confused on how you got here without knowing what the site is  
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
