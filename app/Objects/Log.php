@@ -1,0 +1,1 @@
+//Defered for later but create a static class which handles logs

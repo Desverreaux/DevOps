@@ -1,0 +1,25 @@
+// Breakpoints
+$xsmall-min: 0;
+$xsmall-max: 479px;
+
+$small-min: 480px;
+$small-max: 767px;
+
+$medium-min: 768px;
+$medium-max:  959px;
+
+$large-min: 960px;
+$large-max: 1219px;
+
+$xlarge-min: 1220px;
+
+
+@import 'CustomVariables';
+
+@import 'PageSpecific/_import';
+
+@import 'CustomStyling';
+
+// UIkit 3
+@import 'UIkit/UIkit.scss';
+

@@ -1,0 +1,31 @@
+#main {
+    padding: 48px;
+    height: 100%;
+    width: 100%;
+    vertical-align: top;
+  }
+
+  html, body {
+    margin: 0px;
+    padding: 0px;
+    background-color: whitesmoke;
+    height: 100%;
+    vertical-align: top;
+    overflow: hidden;
+    border: none;
+  }
+
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    margin: 0px;
+    overflow: auto;
+  }
+
+  .container {
+    margin-left: 0px;
+
+  }
+
